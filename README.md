@@ -5,24 +5,84 @@
 [![License](https://img.shields.io/cocoapods/l/ProtocolExtension.svg?style=flat)](http://cocoapods.org/pods/ProtocolExtension)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolExtension.svg?style=flat)](http://cocoapods.org/pods/ProtocolExtension)
 
-## Example
+## Introduce
+protocol extension for Objective-C like Swift
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+protocol 参数目前只支持Object
 
-## Requirements
+## Usage
 
-## Installation
+定义protocol
+```objc
 
-ProtocolExtension is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+@protocol PETest <NSObject>
+
+@optional
+
+- (id)test:(id)arg1 arg2:(id)arg2 arg3:(id)arg3;
+
+@end
+
+```
+
+定义protocol 默认行为
+
+```objc
+
+@extension(PETest)
+
+
+- (id)test:(id)arg1 arg2:(id)arg2 arg3:(id)arg3 {
+NSLog(@"===================>%@===%@=====%@",arg1,arg2,arg3);
+[self testLog];
+return [NSObject new];
+}
+
+- (void)testLog {
+NSLog(@"======================class: %@",self.class);
+}
+
+@end
+
+```
+
+具体使用
+
+```objc
+
+
+@interface PEProtocolTest : NSObject<PETest>
+
+@end
+
+@implementation PEProtocolTest
+
+@end
+
+...
+
+[[PEProtocolTest new] test:@"xxxxxxxxxxxxx" arg2:@"yyyyyyyy" arg3:@"zzzzzzzzzzzz"];
+
+
+```
+
+结果
+
+```objc
+
+===================>xxxxxxxxxxxxx===yyyyyyyy=====zzzzzzzzzzzz
+
+======================class: PEProtocolTest
+
+```
+
 
 ```ruby
 pod "ProtocolExtension"
 ```
 
 ## Author
-
-yuzhoulangzik@126.com, qiang..shen@ele.me
+carl shen
 
 ## License
 

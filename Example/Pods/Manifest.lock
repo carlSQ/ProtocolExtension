@@ -1,0 +1,16 @@
+PODS:
+  - ProtocolExtension (0.1.0)
+
+DEPENDENCIES:
+  - ProtocolExtension (from `../`)
+
+EXTERNAL SOURCES:
+  ProtocolExtension:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ProtocolExtension: 4c18ca789de85e2531e209bba91651a6dab37dec
+
+PODFILE CHECKSUM: 1000a81a8565e8017f7225df1d77a8ba0f442d8a
+
+COCOAPODS: 1.0.1

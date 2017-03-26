@@ -1,0 +1,6 @@
+framework module ProtocolExtension {
+  umbrella header "ProtocolExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

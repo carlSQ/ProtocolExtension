@@ -7,6 +7,7 @@
 //
 
 #import "PEViewController.h"
+#import "PEProtocolTest.h"
 
 @interface PEViewController ()
 
@@ -16,14 +17,18 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+  [super viewDidLoad];
+  [[PEProtocolTest new] test:@"xxxxxxxxxxxxx" arg2:@"yyyyyyyy" arg3:@"zzzzzzzzzzzz"];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+  NSLog(@"PEViewController release");
 }
 
 @end
