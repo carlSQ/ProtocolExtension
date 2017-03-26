@@ -1,6 +1,6 @@
 # ProtocolExtension
 
-[![CI Status](http://img.shields.io/travis/yuzhoulangzik@126.com/ProtocolExtension.svg?style=flat)](https://travis-ci.org/yuzhoulangzik@126.com/ProtocolExtension)
+[![CI Status](http://img.shields.io/travis/carlSQ/ProtocolExtension.svg?style=flat)](https://travis-ci.org/carlSQ/ProtocolExtension)
 [![Version](https://img.shields.io/cocoapods/v/ProtocolExtension.svg?style=flat)](http://cocoapods.org/pods/ProtocolExtension)
 [![License](https://img.shields.io/cocoapods/l/ProtocolExtension.svg?style=flat)](http://cocoapods.org/pods/ProtocolExtension)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolExtension.svg?style=flat)](http://cocoapods.org/pods/ProtocolExtension)
@@ -76,6 +76,8 @@ NSLog(@"======================class: %@",self.class);
 
 ```
 
+
+## Install
 
 ```ruby
 pod "ProtocolExtension"
