@@ -871,7 +871,7 @@ return;\
   NSMutableArray *_protocolExtensions = [NSMutableArray array];
   Class currentClass = [self class];
 
-    int outCount = 0;
+    unsigned int outCount = 0;
     Protocol * __unsafe_unretained * protocols = class_copyProtocolList(currentClass, &outCount);
     for (int i = 0; i < outCount; i++) {
       Protocol *protocol = protocols[i];
@@ -881,7 +881,7 @@ return;\
 
   NSMutableSet *extensionSets = [NSMutableSet setWithArray:_protocolExtensions];
   [extensionSets intersectSet:[NSSet setWithArray:protocolExtensions().allKeys]];
-  return extensionSets;
+  return extensionSets.allObjects;
 }
 
 @end
