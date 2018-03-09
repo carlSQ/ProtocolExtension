@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ProtocolExtension'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'protocol extension for Objective-C like Swift'
 
 
