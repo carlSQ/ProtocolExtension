@@ -8,8 +8,6 @@
 ## Introduce
 protocol extension for Objective-C like Swift
 
-protocol 参数目前只支持Object
-
 ## Usage
 
 定义protocol
