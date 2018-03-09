@@ -18,7 +18,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [[PEProtocolTest new] test:@"xxxxxxxxxxxxx" arg2:@"yyyyyyyy" arg3:@"zzzzzzzzzzzz"];
+  id test = [[PEProtocolTest new] test:@"xxxxxxxxxxxxx" arg2:@"yyyyyyyy" arg3:@"zzzzzzzzzzzz"];
+  [test test:@"xxxxxxxxxxxxx" arg2:@"yyyyyyyy" arg3:@"zzzzzzzzzzzz"];
 }
 
 

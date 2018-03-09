@@ -14,7 +14,7 @@
 - (id)test:(id)arg1 arg2:(id)arg2 arg3:(id)arg3 {
   NSLog(@"===================>%@===%@=====%@",arg1,arg2,arg3);
   [self testLog];
-  return [NSObject new];
+  return self;
 }
 
 - (void)testLog {

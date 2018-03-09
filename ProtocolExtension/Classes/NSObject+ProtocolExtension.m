@@ -107,7 +107,6 @@ static ffi_type* ffiTypeWithEncodingChar(const char *c) {
   if (methodSignature) {
     return methodSignature;
   }
-  
   for (NSString *protocol in [[self class] pe_protocolExtensions]) {
     Class extension = [protocolExtensions() objectForKey:protocol];
     if ([extension respondsToSelector:aSelector]) {
@@ -142,7 +141,7 @@ static ffi_type* ffiTypeWithEncodingChar(const char *c) {
   NSMethodSignature *methodSignature = [self methodSignatureForSelector:method_getName(method)];
   NSUInteger argsCount = methodSignature.numberOfArguments;
   ffi_type** ffiArgTypes = calloc(argsCount, sizeof(ffi_type *));
-  void **ffiArgs = alloca(sizeof(void *) *argsCount);
+  void **ffiArgs = calloc(argsCount, sizeof(void *));
   for (int i = 0; i < argsCount ; i++) {
    const char *argType =  [methodSignature getArgumentTypeAtIndex:i];
     ffi_type* ftype = ffiTypeWithEncodingChar(argType);
@@ -168,12 +167,18 @@ static ffi_type* ffiTypeWithEncodingChar(const char *c) {
     } else {
       void *returnPtr = NULL;
       if (ffiReturnType->size) {
-        returnPtr = alloca(ffiReturnType->size);
+        returnPtr = calloc(1, ffiReturnType->size);
       }
       ffi_call(&cif, functionPtr, returnPtr, ffiArgs);
       [anInvocation setReturnValue:returnPtr];
+      free(returnPtr);
     }
   }
+  free(ffiArgTypes);
+  for (int i = 0; i < argsCount; i++) {
+    free(ffiArgs[i]);
+  }
+  free(ffiArgs);
 }
 
 - (BOOL)pe_respondsToSelector:(SEL)aSelector {
