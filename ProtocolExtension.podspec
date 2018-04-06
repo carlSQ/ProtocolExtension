@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ProtocolExtension/Classes/**/*'
-
+  s.source_files = 'ProtocolExtension/Classes/**/*.{h,m}'
+  s.ios.public_header_files = 'ProtocolExtension/Classes/*.h'
+  s.vendored_libraries = 'ProtocolExtension/Classes/libffi/libffi.a'
 end
